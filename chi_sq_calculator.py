@@ -7,7 +7,7 @@ observed_stat_arr = [float(x) for x in observed_stat_arr_str]
 print("You have entered " + str(observed_stat_arr))
 
 #Specify values for the expected
-shud_ui_merj = False
+should_merge = False
 invalid_columns = []
 
 left_merge = -1
@@ -24,7 +24,7 @@ exp_stat_length = len(expected_stat_arr)
 for i in range(exp_stat_length):
     if expected_stat_arr[i] <= 5:
         invalid_columns.append(i)
-        shud_ui_merj = True
+        should_merge = True
 
 midpoint = (exp_stat_length + 1) / 2
 
@@ -39,7 +39,7 @@ for i in range(len(invalid_columns)):
             if left_merge > invalid_columns[i]:
                 left_merge = invalid_columns[i]
 
-if shud_ui_merj:
+if should_merge:
     if right_merge != -1:
         merge_start = right_merge
         steps_back = 1
